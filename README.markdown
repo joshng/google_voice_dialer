@@ -21,7 +21,7 @@ Dependencies
 
 Thanks to the slick [mechanize](http://mechanize.rubyforge.org/mechanize/) gem, this project was very very easy.
 
-    $ sudo gem install mechanize
+    $ sudo gem install tenderlove-mechanize
 
 
 Example usage
