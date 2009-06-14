@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require 'rubygems'
 require 'mechanize'
 
@@ -21,7 +22,11 @@ class GoogleVoiceDialer
 
     # @gv_number = page.root.to_s[/\{'raw': '\+(\d{11})'/, 1]
     # @auth_token = response_text[/'_rnr_se': '(.+?)'/, 1] or raise "Unable to parse auth-token"
-    @auth_token = page.forms.find {|f| f.has_field?('_rnr_se') }.field_with(:name => '_rnr_se').value
+    dialing_form = page.forms.find {|f| f.has_field?('_rnr_se') }
+
+    raise "Login failed" unless dialing_form
+
+    @auth_token = dialing_form.field_with(:name => '_rnr_se').value
     @agent = agent
     self
   end
@@ -46,4 +51,26 @@ class GoogleVoiceDialer
     end
     self
   end
+end
+
+if $0 == __FILE__
+  def usage(msg = '')
+    STDERR.puts "#{msg}\nusage: #{File.basename $0} <email> <password> <local-number> <remote-number>"
+    exit 1
+  end
+
+  if ARGV.length != 4
+    usage
+  end
+
+  email, password, local, remote = ARGV
+
+  if local.gsub(/\D/, '').length != 10
+    usage "Invalid local number: #{local}"
+  end
+  if remote.gsub(/\D/, '').length != 10
+    usage "Invalid remote number: #{remote}"
+  end
+
+  GoogleVoiceDialer.new(email, password).dial(local, remote)
 end

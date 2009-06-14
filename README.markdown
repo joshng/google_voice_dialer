@@ -32,3 +32,14 @@ Example usage
     dialer.dial(my_number, another_number)
     dialer.logout	  # if you feel like it
 
+Command-line
+------------
+
+The script also supports being run from the command-line; this could be integrated with your preferred non-ruby-based mechanism for looking up numbers:
+
+    google_voice_dialer.rb <email> <password> <local-number> <remote-number>
+
+For example:
+
+    google_voice_dialer.rb myname@gmail.com password 206-555-1212 2065551234
+
