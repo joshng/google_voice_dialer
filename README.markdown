@@ -23,7 +23,9 @@ Thanks to the very cool [mechanize](http://mechanize.rubyforge.org/mechanize/) g
 
     sudo gem install mechanize
 
-Example usage:
+
+Example usage
+-------------
 
     dialer = GoogleVoiceDialer.new('myname@gmail.com', 'password')
     dialer.dial(my_number, their_number)
