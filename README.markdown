@@ -1,9 +1,9 @@
 Background
 ----------
 
-When I was using GrandCentral, I became accustomed to dialing my phone via QuickSilver (using a tool called Vocito, which apparently died quietly with the absorbtion of GC by GOOG).  Now since I've switched to Google Voice, __I CAN'T DO THIS ANY MORE__.
+When I was using GrandCentral, I became accustomed to dialing my phone via QuickSilver (using a tool called Vocito (http://code.google.com/p/vocito/), which apparently died quietly with the absorbtion of GC by GOOG).  Since I've switched to Google Voice, __I CAN'T DO THIS ANY MORE__.
 
-Now I go slightly mad every time I want to make a call, so I must rectify.  This lib is the first step; I hope to figure out the QuickSilver integration next.
+Now I seethe just a little every time I want to make a call.  Must rectify.  This lib is the first step; I hope to figure out the QuickSilver integration next.
 
 
 Simple dialer for Google Voice in ruby
@@ -37,9 +37,9 @@ Command-line
 
 The script also supports being run from the command-line; this could be integrated with your preferred non-ruby-based mechanism for looking up numbers:
 
-    google_voice_dialer.rb <email> <password> <local-number> <remote-number>
+    $ google_voice_dialer.rb <email> <password> <local-number> <remote-number>
 
-For example:
+Like this (number formats don't matter, as long as they appear as a single argument -- no spaces):
 
-    google_voice_dialer.rb myname@gmail.com password 206-555-1212 2065551234
+    $ google_voice_dialer.rb myname@gmail.com password 206-555-1212 2065551234
 
