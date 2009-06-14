@@ -16,8 +16,14 @@ Currently involves scraping the GV Inbox page for the necessary auth-token.
 This is shady practice; it's working right now, but might stop without warning
 because GV has not released an official public API.
 
+Dependencies
+------------
 
-example:
+Thanks to the very cool [mechanize](http://mechanize.rubyforge.org/mechanize/) gem, this project was very very easy.
+
+    sudo gem install mechanize
+
+Example usage:
 
     dialer = GoogleVoiceDialer.new('myname@gmail.com', 'password')
     dialer.dial(my_number, their_number)
