@@ -1,11 +1,3 @@
-Background
-----------
-
-When I was using GrandCentral, I became accustomed to dialing my phone via QuickSilver (using a tool called Vocito (http://code.google.com/p/vocito/), which apparently died quietly with the absorbtion of GC by GOOG).  Since I've switched to Google Voice, __I CAN'T DO THIS ANY MORE__.
-
-Now I seethe just a little every time I want to make a call.  Must rectify.  This lib is the first step; I hope to figure out the QuickSilver integration next.
-
-
 Simple dialer for Google Voice in ruby
 --------------------------------------
 

@@ -37,9 +37,13 @@ class GoogleVoiceDialer
 
   def dial(local_number, remote_number)
     login unless logged_in?
+    local = local_number.gsub(/\D/, '')
+    remote = remote_number.gsub(/\D/, '')
+    raise "Invalid local number: #{local_number}" unless local.length == 10
+    raise "Invalid remote number: #{remote_number}" unless remote.length == 10
     @agent.post('https://www.google.com/voice/call/connect/',
-	 :forwardingNumber => '+1' << local_number.gsub(/\D/, ''),
-	 :outgoingNumber => remote_number.gsub(/\D/, ''),
+	 :forwardingNumber => '+1' << local,
+	 :outgoingNumber => remote,
 	 :_rnr_se => @auth_token)
     self
   end
@@ -73,4 +77,5 @@ if $0 == __FILE__
   end
 
   GoogleVoiceDialer.new(email, password).dial(local, remote)
+  # echo "Dialed #{remote}"
 end
